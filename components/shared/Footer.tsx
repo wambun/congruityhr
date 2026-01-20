@@ -88,28 +88,17 @@ export function Footer() {
             <p className="text-sm text-white/60">
               &copy; {currentYear} Congruity HR. All rights reserved.
             </p>
-            <div className="flex items-center gap-6">
-              <Link
-                href="/privacy"
-                className="text-sm text-white/60 hover:text-white transition-colors"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="text-sm text-white/60 hover:text-white transition-colors"
-              >
-                Terms of Service
-              </Link>
+            <div className="flex items-center gap-4">
               {siteConfig.linkedin && (
                 <a
                   href={siteConfig.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                  className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-4 h-4" />
+                  <span>Follow us on LinkedIn</span>
                 </a>
               )}
             </div>

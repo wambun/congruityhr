@@ -30,18 +30,9 @@ export const footerLinks: Array<{
     columnName: 'Company',
     links: [
       { href: '/about', title: 'About Us' },
-      { href: '/about/team', title: 'Our Team' },
-      { href: '/about/why-congruity', title: 'Why Congruity' },
-      { href: '/resources/blog', title: 'Blog' },
+      { href: '/about/meet-the-team', title: 'Meet the Team' },
       { href: '/contact', title: 'Contact' },
-    ],
-  },
-  {
-    columnName: 'Partners',
-    links: [
-      { href: '/partners/brokers', title: 'Brokers' },
-      { href: '/partners/referrals', title: 'Referrals' },
-      { href: '/partners/strategic-alliances', title: 'Strategic Alliances' },
+      { href: '/book-demo', title: 'Book a Demo' },
     ],
   },
 ];
