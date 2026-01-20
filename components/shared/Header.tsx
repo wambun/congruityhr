@@ -15,6 +15,9 @@ export function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
 
+  // Pages with dark hero backgrounds that need light header text
+  const hasDarkHero = pathname.startsWith('/services/') && pathname !== '/services';
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -28,6 +31,9 @@ export function Header() {
     setActiveDropdown(null);
   }, [pathname]);
 
+  // Determine if we should use light (white) text
+  const useLightText = hasDarkHero && !isScrolled;
+
   return (
     <header
       className={cn(
@@ -35,7 +41,9 @@ export function Header() {
         'transition-all duration-500 ease-out',
         isScrolled
           ? 'bg-cream/95 backdrop-blur-md shadow-soft py-2'
-          : 'bg-transparent py-4'
+          : hasDarkHero
+            ? 'bg-primary/20 backdrop-blur-sm py-4'
+            : 'bg-transparent py-4'
       )}
     >
       <div className="container-main">
@@ -66,8 +74,12 @@ export function Header() {
                   className={cn(
                     'flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-full transition-all',
                     pathname === link.href || pathname.startsWith(link.href + '/')
-                      ? 'text-primary bg-primary/5'
-                      : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
+                      ? useLightText
+                        ? 'text-white bg-white/20'
+                        : 'text-primary bg-primary/5'
+                      : useLightText
+                        ? 'text-white/90 hover:text-white hover:bg-white/10'
+                        : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
                   )}
                 >
                   {link.title}
@@ -125,20 +137,35 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-3">
             <a
               href="tel:8442474100"
-              className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+              className={cn(
+                'flex items-center gap-2 text-sm font-medium transition-colors',
+                useLightText
+                  ? 'text-white/90 hover:text-white'
+                  : 'text-foreground/80 hover:text-primary'
+              )}
             >
               <Phone className="w-4 h-4" />
               <span className="hidden xl:inline">844-247-4100</span>
             </a>
             <Link
               href="/contact"
-              className="btn btn-secondary text-sm"
+              className={cn(
+                'btn text-sm',
+                useLightText
+                  ? 'border-2 border-white/30 text-white hover:bg-white/10'
+                  : 'btn-secondary'
+              )}
             >
               Contact Us
             </Link>
             <Link
               href="/book-demo"
-              className="btn btn-primary text-sm"
+              className={cn(
+                'btn text-sm',
+                useLightText
+                  ? 'bg-white text-primary hover:bg-white/90'
+                  : 'btn-primary'
+              )}
             >
               Book a Demo
             </Link>
@@ -147,7 +174,12 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
+            className={cn(
+              'lg:hidden p-2 transition-colors',
+              useLightText
+                ? 'text-white hover:text-white/80'
+                : 'text-foreground hover:text-primary'
+            )}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMobileMenuOpen ? (
