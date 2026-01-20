@@ -33,8 +33,13 @@ export function HeroHome() {
           style={{ y: blob2Y }}
           className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"
         />
+        {/* Green accent blob */}
+        <motion.div
+          style={{ y: blob1Y }}
+          className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-success/10 rounded-full blur-3xl hidden lg:block"
+        />
         {/* Additional subtle geometric accent */}
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-accent/10 rounded-full hidden lg:block" />
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-success/20 rounded-full hidden lg:block" />
       </div>
 
       <div className="container-main py-16 lg:py-24">
@@ -108,7 +113,7 @@ export function HeroHome() {
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                   className="flex items-center gap-2 text-sm text-foreground/80"
                 >
-                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-success flex-shrink-0" />
                   {feature}
                 </motion.div>
               ))}
@@ -159,20 +164,20 @@ export function HeroHome() {
 
             {/* Stats below image */}
             <div className="grid grid-cols-4 gap-4 mt-6">
-              <div className="text-center bg-white rounded-xl p-4 shadow-soft">
+              <div className="text-center bg-white rounded-xl p-4 shadow-soft border-t-2 border-primary">
                 <div className="text-2xl lg:text-3xl font-bold text-primary">500+</div>
                 <div className="text-xs text-muted-foreground mt-1">Companies</div>
               </div>
-              <div className="text-center bg-white rounded-xl p-4 shadow-soft">
-                <div className="text-2xl lg:text-3xl font-bold text-primary">50K+</div>
+              <div className="text-center bg-white rounded-xl p-4 shadow-soft border-t-2 border-success">
+                <div className="text-2xl lg:text-3xl font-bold text-success">50K+</div>
                 <div className="text-xs text-muted-foreground mt-1">Employees</div>
               </div>
-              <div className="text-center bg-white rounded-xl p-4 shadow-soft">
-                <div className="text-2xl lg:text-3xl font-bold text-primary">99%</div>
+              <div className="text-center bg-white rounded-xl p-4 shadow-soft border-t-2 border-accent">
+                <div className="text-2xl lg:text-3xl font-bold text-accent">99%</div>
                 <div className="text-xs text-muted-foreground mt-1">Retention</div>
               </div>
-              <div className="text-center bg-white rounded-xl p-4 shadow-soft">
-                <div className="text-2xl lg:text-3xl font-bold text-primary">24/7</div>
+              <div className="text-center bg-white rounded-xl p-4 shadow-soft border-t-2 border-success">
+                <div className="text-2xl lg:text-3xl font-bold text-success">24/7</div>
                 <div className="text-xs text-muted-foreground mt-1">Support</div>
               </div>
             </div>

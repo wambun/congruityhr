@@ -19,6 +19,7 @@ const services = [
       'Let us handle all your payroll, benefits, and HR support needs with our comprehensive PEO solutions.',
     href: '/services/peo-services',
     iconBg: 'bg-primary/10',
+    iconColor: 'text-primary',
   },
   {
     icon: FileText,
@@ -27,6 +28,7 @@ const services = [
       'Just need the basics? Our ASO model provides flexible HR outsourcing while you maintain control.',
     href: '/services/aso-services',
     iconBg: 'bg-accent/10',
+    iconColor: 'text-accent',
   },
   {
     icon: Briefcase,
@@ -34,7 +36,8 @@ const services = [
     description:
       'From recruiting to retirement, and everything in-between. Complete HR lifecycle management.',
     href: '/services/hr-solutions',
-    iconBg: 'bg-primary/15',
+    iconBg: 'bg-success/10',
+    iconColor: 'text-success',
   },
   {
     icon: Heart,
@@ -42,7 +45,8 @@ const services = [
     description:
       'Comprehensive benefits packages that attract and retain top talent with healthcare and perks.',
     href: '/services/employee-benefits',
-    iconBg: 'bg-accent/10',
+    iconBg: 'bg-success/10',
+    iconColor: 'text-success',
   },
   {
     icon: Shield,
@@ -50,7 +54,8 @@ const services = [
     description:
       'Navigate complex labor laws and regulations with confidence. Stay compliant, reduce risk.',
     href: '/services/compliance-risk',
-    iconBg: 'bg-primary/10',
+    iconBg: 'bg-accent/10',
+    iconColor: 'text-accent',
   },
 ];
 
@@ -124,7 +129,7 @@ export function ServicesSection() {
                     transition={{ type: 'spring', stiffness: 300, damping: 15 }}
                     className={`w-14 h-14 rounded-2xl ${service.iconBg} flex items-center justify-center mb-6 icon-glow`}
                   >
-                    <service.icon className="w-7 h-7 text-primary" />
+                    <service.icon className={`w-7 h-7 ${service.iconColor}`} />
                   </motion.div>
                   <h3 className="text-xl font-semibold text-primary mb-3 group-hover:text-primary/80 transition-colors">
                     {service.title}

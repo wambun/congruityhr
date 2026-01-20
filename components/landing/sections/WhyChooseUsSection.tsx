@@ -9,36 +9,48 @@ const features = [
     title: 'It all starts with your goals',
     description:
       'We take the time to learn about where you want to be, then develop a bespoke program to get you there.',
+    iconBg: 'bg-primary/10',
+    iconColor: 'text-primary',
   },
   {
     icon: Users,
     title: 'Dedicated support team',
     description:
       "You'll always have a dedicated member of our team to ensure things run smoothly. No big-box runaround.",
+    iconBg: 'bg-success/10',
+    iconColor: 'text-success',
   },
   {
     icon: TrendingUp,
     title: 'We track trends so you don\'t have to',
     description:
       'Our team keeps up to speed on HR legislation and compliance at both state and federal levels.',
+    iconBg: 'bg-accent/10',
+    iconColor: 'text-accent',
   },
   {
     icon: Zap,
     title: 'Game-changing technology',
     description:
       'Our iSolved-powered platform delivers diverse functionality to managers and employees alike.',
+    iconBg: 'bg-success/10',
+    iconColor: 'text-success',
   },
   {
     icon: HeadphonesIcon,
     title: 'Lightning-fast response times',
     description:
       "Round-the-clock support means you never have to go it alone. We're here when you need us.",
+    iconBg: 'bg-accent/10',
+    iconColor: 'text-accent',
   },
   {
     icon: Award,
     title: 'Award-winning platform',
     description:
       'Our technology backbone serves as a one-stop-shop for everything you need, from hire to retire.',
+    iconBg: 'bg-success/10',
+    iconColor: 'text-success',
   },
 ];
 
@@ -48,6 +60,7 @@ export function WhyChooseUsSection() {
       {/* Background decorative elements */}
       <div className="absolute -top-20 -left-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
       <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 right-1/4 w-40 h-40 bg-success/10 rounded-full blur-3xl" />
 
       <div className="container-main relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -81,9 +94,9 @@ export function WhyChooseUsSection() {
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-                    className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 icon-glow transition-colors group-hover:bg-primary/15"
+                    className={`w-12 h-12 rounded-xl ${feature.iconBg} flex items-center justify-center flex-shrink-0 icon-glow transition-colors`}
                   >
-                    <feature.icon className="w-6 h-6 text-primary" />
+                    <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
                   </motion.div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">
@@ -109,12 +122,12 @@ export function WhyChooseUsSection() {
             <div className="relative bg-white rounded-3xl shadow-card p-8">
               {/* Stats */}
               <div className="grid grid-cols-2 gap-6 mb-8">
-                <div className="text-center p-6 bg-cream-dark rounded-2xl">
-                  <div className="text-4xl font-bold text-primary mb-2">20+</div>
+                <div className="text-center p-6 bg-cream-dark rounded-2xl border-l-4 border-success">
+                  <div className="text-4xl font-bold text-success mb-2">20+</div>
                   <div className="text-sm text-muted-foreground">Years of Experience</div>
                 </div>
-                <div className="text-center p-6 bg-cream-dark rounded-2xl">
-                  <div className="text-4xl font-bold text-primary mb-2">500+</div>
+                <div className="text-center p-6 bg-cream-dark rounded-2xl border-l-4 border-accent">
+                  <div className="text-4xl font-bold text-accent mb-2">500+</div>
                   <div className="text-sm text-muted-foreground">Satisfied Clients</div>
                 </div>
               </div>
@@ -130,8 +143,8 @@ export function WhyChooseUsSection() {
                     transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                     className="flex items-center gap-4 p-4 bg-cream-dark rounded-xl"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <feature.icon className="w-5 h-5 text-primary" />
+                    <div className={`w-10 h-10 rounded-lg ${feature.iconBg} flex items-center justify-center flex-shrink-0`}>
+                      <feature.icon className={`w-5 h-5 ${feature.iconColor}`} />
                     </div>
                     <div>
                       <h4 className="font-medium text-foreground">{feature.title}</h4>
