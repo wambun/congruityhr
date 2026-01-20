@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { services, getServiceBySlug } from '@/data/content/services';
 import { CTASection } from '@/components/landing';
 import { ArrowRight, Check, Users, FileText, Briefcase, Heart, Shield } from 'lucide-react';
@@ -54,27 +55,60 @@ export default async function ServicePage({ params }: PageProps) {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-cream">
-        <div className="container-main">
-          <div className="max-w-4xl">
+      {/* Hero Section with Image Banner */}
+      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src={service.image}
+            alt={service.title}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
+          {/* Decorative Elements */}
+          <div className="absolute top-20 right-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 left-10 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+        </div>
+
+        <div className="container-main relative">
+          <div className="max-w-3xl">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary mb-6 transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white mb-6 transition-colors"
             >
               <ArrowRight className="w-4 h-4 rotate-180" />
               Back to Services
             </Link>
-            <div className="flex items-start gap-6 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Icon className="w-8 h-8 text-primary" />
+
+            <div className="flex items-start gap-5 mb-8">
+              <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center flex-shrink-0 border border-white/20">
+                <Icon className="w-8 h-8 text-white" />
               </div>
               <div>
-                <h1 className="text-h1 text-primary mb-4">{service.title}</h1>
-                <p className="text-lg text-muted-foreground">
+                <h1 className="text-h1 text-white mb-4">{service.title}</h1>
+                <p className="text-lg text-white/90 leading-relaxed">
                   {service.longDescription}
                 </p>
               </div>
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/book-demo"
+                className="btn bg-white text-primary hover:bg-cream"
+              >
+                Book a Demo
+              </Link>
+              <Link
+                href="/contact"
+                className="btn border-2 border-white/30 text-white hover:bg-white/10"
+              >
+                Contact Us
+              </Link>
             </div>
           </div>
         </div>

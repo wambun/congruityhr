@@ -63,7 +63,7 @@ export default function MeetTheTeamPage() {
                   <h3 className="text-xl font-semibold text-primary mb-1">
                     {member.name}
                   </h3>
-                  <p className="text-sm text-accent font-medium mb-2">
+                  <p className="text-sm text-accent font-medium mb-1">
                     {member.title}
                   </p>
                   {member.credentials && (
@@ -71,9 +71,11 @@ export default function MeetTheTeamPage() {
                       {member.credentials}
                     </p>
                   )}
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {member.bio}
-                  </p>
+                  <div className="pt-3 mt-3 border-t border-gray-100">
+                    <p className="text-base text-foreground leading-relaxed">
+                      {member.bio}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}

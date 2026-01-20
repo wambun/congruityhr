@@ -39,15 +39,15 @@ export function Header() {
       )}
     >
       <div className="container-main">
-        <nav className="flex items-center justify-between h-20">
+        <nav className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="/static/images/logo.png"
               alt="Congruity HR - Your Business Optimized"
-              width={180}
-              height={74}
-              className="h-12 w-auto"
+              width={270}
+              height={111}
+              className="h-[72px] w-auto"
               priority
             />
           </Link>

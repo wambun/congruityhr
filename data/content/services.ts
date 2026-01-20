@@ -4,6 +4,7 @@ export interface Service {
   slug: string;
   shortDescription: string;
   longDescription: string;
+  image: string;
   features: {
     title: string;
     description: string;
@@ -19,6 +20,7 @@ export const services: Service[] = [
     slug: 'peo-services',
     shortDescription:
       'Let us handle all your payroll, benefits, and HR support needs with our comprehensive PEO solutions.',
+    image: '/static/images/services/peo-services.jpg',
     longDescription:
       "Congruity's PEO services combine world-class HR, benefits, and payroll support with technology and customer support that's second to none. We become a co-employer with your business, taking on HR responsibilities while you maintain control of your day-to-day operations.",
     features: [
@@ -68,6 +70,7 @@ export const services: Service[] = [
     slug: 'aso-services',
     shortDescription:
       'Flexible HR outsourcing that lets you maintain employer control while offloading administrative tasks.',
+    image: '/static/images/services/aso-services.jpg',
     longDescription:
       'Our ASO model allows businesses to outsource HR-related tasks like payroll processing and benefit administration while maintaining full employer status. This flexibility enables you to enhance your HR functions while keeping your own benefit plans.',
     features: [
@@ -107,6 +110,7 @@ export const services: Service[] = [
     slug: 'hr-solutions',
     shortDescription:
       'From recruiting to retirement, and everything in-between. Complete HR lifecycle management.',
+    image: '/static/images/services/hr-solutions.jpg',
     longDescription:
       'At Congruity, we provide comprehensive HR solutions covering the entire employee lifecycle. Whether you need daily support or specialized expertise, our team is ready to help.',
     features: [
@@ -146,6 +150,7 @@ export const services: Service[] = [
     slug: 'employee-benefits',
     shortDescription:
       'Comprehensive benefits packages that attract and retain top talent.',
+    image: '/static/images/services/employee-benefits.jpg',
     longDescription:
       'To keep current employees happy and attract new talent, you need comprehensive and competitive benefits. Congruity provides dedicated benefits account managers to help define your needs and deliver access to diverse programs.',
     features: [
@@ -185,6 +190,7 @@ export const services: Service[] = [
     slug: 'compliance-risk',
     shortDescription:
       'Navigate complex regulations with confidence and protect your business.',
+    image: '/static/images/services/compliance-risk.jpg',
     longDescription:
       'The world of HR compliance can turn on a dime. Our team stays current on everything happening at state and federal levels, ensuring your organization stays on the right side of regulations.',
     features: [

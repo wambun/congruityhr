@@ -83,23 +83,6 @@ export const headerNavLinks: Array<{
   {
     href: '/about',
     title: 'About',
-    children: [
-      {
-        href: '/about',
-        title: 'About Us',
-        description: 'Learn about Congruity HR',
-      },
-      {
-        href: '/about/meet-the-team',
-        title: 'Meet the Team',
-        description: 'Meet our expert HR professionals',
-      },
-      {
-        href: '/about/why-congruity',
-        title: 'Why Congruity',
-        description: 'What makes us different',
-      },
-    ],
   },
   {
     href: '/contact',
