@@ -90,8 +90,8 @@ export const headerNavLinks: Array<{
         description: 'Learn about Congruity HR',
       },
       {
-        href: '/about/team',
-        title: 'Our Team',
+        href: '/about/meet-the-team',
+        title: 'Meet the Team',
         description: 'Meet our expert HR professionals',
       },
       {
