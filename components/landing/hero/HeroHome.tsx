@@ -145,80 +145,36 @@ export function HeroHome() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative">
-              {/* Main image container */}
-              <div className="relative rounded-3xl overflow-hidden shadow-card">
-                <Image
-                  src="/static/images/hero/team-collaboration.jpg"
-                  alt="Team collaborating in modern office"
-                  width={1200}
-                  height={800}
-                  className="w-full h-[400px] lg:h-[500px] object-cover"
-                  priority
-                />
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent" />
+            {/* Main image container */}
+            <div className="relative rounded-3xl overflow-hidden shadow-card">
+              <Image
+                src="/static/images/hero/team-collaboration.jpg"
+                alt="Team collaborating in modern office"
+                width={1200}
+                height={800}
+                className="w-full h-[400px] lg:h-[500px] object-cover"
+                priority
+              />
+            </div>
 
-                {/* Stats overlay at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="grid grid-cols-4 gap-3">
-                    <div className="text-center glass rounded-xl p-3">
-                      <div className="text-2xl lg:text-3xl font-bold text-white">500+</div>
-                      <div className="text-xs text-white/80">Companies</div>
-                    </div>
-                    <div className="text-center glass rounded-xl p-3">
-                      <div className="text-2xl lg:text-3xl font-bold text-white">50K+</div>
-                      <div className="text-xs text-white/80">Employees</div>
-                    </div>
-                    <div className="text-center glass rounded-xl p-3">
-                      <div className="text-2xl lg:text-3xl font-bold text-white">99%</div>
-                      <div className="text-xs text-white/80">Retention</div>
-                    </div>
-                    <div className="text-center glass rounded-xl p-3">
-                      <div className="text-2xl lg:text-3xl font-bold text-white">24/7</div>
-                      <div className="text-xs text-white/80">Support</div>
-                    </div>
-                  </div>
-                </div>
+            {/* Stats below image */}
+            <div className="grid grid-cols-4 gap-4 mt-6">
+              <div className="text-center bg-white rounded-xl p-4 shadow-soft">
+                <div className="text-2xl lg:text-3xl font-bold text-primary">500+</div>
+                <div className="text-xs text-muted-foreground mt-1">Companies</div>
               </div>
-
-              {/* Floating testimonial card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.6 }}
-                className="absolute -left-4 lg:-left-8 bottom-24 bg-white rounded-2xl shadow-card p-4 max-w-[280px] hidden lg:block animate-float hover-glow"
-              >
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-accent">
-                    KJ
-                  </div>
-                  <div>
-                    <p className="text-sm text-foreground/80 italic mb-2">
-                      "Congruity HR's service and support is exceptional!"
-                    </p>
-                    <p className="text-xs text-muted-foreground">Kate Jones, HR Director</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Floating badge */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.7 }}
-                className="absolute -right-4 top-8 bg-white rounded-2xl shadow-card px-4 py-3 hidden lg:block animate-float-slow hover-glow"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-success/15 flex items-center justify-center">
-                    <CheckCircle className="w-4 h-4 text-success" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-muted-foreground">iSolved Certified</div>
-                    <div className="text-sm font-semibold text-foreground">Partner</div>
-                  </div>
-                </div>
-              </motion.div>
+              <div className="text-center bg-white rounded-xl p-4 shadow-soft">
+                <div className="text-2xl lg:text-3xl font-bold text-primary">50K+</div>
+                <div className="text-xs text-muted-foreground mt-1">Employees</div>
+              </div>
+              <div className="text-center bg-white rounded-xl p-4 shadow-soft">
+                <div className="text-2xl lg:text-3xl font-bold text-primary">99%</div>
+                <div className="text-xs text-muted-foreground mt-1">Retention</div>
+              </div>
+              <div className="text-center bg-white rounded-xl p-4 shadow-soft">
+                <div className="text-2xl lg:text-3xl font-bold text-primary">24/7</div>
+                <div className="text-xs text-muted-foreground mt-1">Support</div>
+              </div>
             </div>
           </motion.div>
         </div>
