@@ -91,8 +91,12 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-cream">
-        <div className="container-main">
+      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-cream relative overflow-hidden">
+        {/* Decorative blobs */}
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 hidden lg:block" />
+        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-success/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2 hidden lg:block" />
+
+        <div className="container-main relative">
           <div className="max-w-3xl mx-auto text-center">
             <span className="badge badge-primary mb-4">Contact Us</span>
             <h1 className="text-h1 text-primary mb-6">
@@ -114,32 +118,42 @@ export default function ContactPage() {
             <div>
               <h2 className="text-h3 text-primary mb-6">Get in Touch</h2>
               <div className="space-y-6 mb-8">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <info.icon className="w-5 h-5 text-primary" />
+                {contactInfo.map((info, index) => {
+                  const colors = ['primary', 'success', 'accent'];
+                  const color = colors[index % colors.length];
+                  return (
+                    <div key={index} className="flex items-start gap-4">
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
+                        color === 'success' ? 'bg-success/10' :
+                        color === 'accent' ? 'bg-accent/10' : 'bg-primary/10'
+                      }`}>
+                        <info.icon className={`w-5 h-5 ${
+                          color === 'success' ? 'text-success' :
+                          color === 'accent' ? 'text-accent' : 'text-primary'
+                        }`} />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-foreground mb-1">
+                          {info.title}
+                        </h3>
+                        {info.href ? (
+                          <a
+                            href={info.href}
+                            className="text-muted-foreground hover:text-primary transition-colors"
+                          >
+                            {info.value}
+                          </a>
+                        ) : (
+                          <p className="text-muted-foreground">{info.value}</p>
+                        )}
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">
-                        {info.title}
-                      </h3>
-                      {info.href ? (
-                        <a
-                          href={info.href}
-                          className="text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          {info.value}
-                        </a>
-                      ) : (
-                        <p className="text-muted-foreground">{info.value}</p>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Office Hours */}
-              <div className="bg-white rounded-card p-6 shadow-soft">
+              <div className="bg-white rounded-card p-6 shadow-soft border-t-2 border-success">
                 <h3 className="font-semibold text-foreground mb-4">Office Hours</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
@@ -162,8 +176,8 @@ export default function ContactPage() {
               <div className="bg-white rounded-card p-8 shadow-card">
                 {submitSuccess ? (
                   <div className="text-center py-12">
-                    <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-                      <Send className="w-8 h-8 text-green-600" />
+                    <div className="w-16 h-16 rounded-full bg-success/15 flex items-center justify-center mx-auto mb-6">
+                      <Send className="w-8 h-8 text-success" />
                     </div>
                     <h2 className="text-h3 text-primary mb-4">Message Sent!</h2>
                     <p className="text-muted-foreground mb-6">

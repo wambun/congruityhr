@@ -14,8 +14,12 @@ export default function IndustriesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-cream">
-        <div className="container-main">
+      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-cream relative overflow-hidden">
+        {/* Decorative blobs */}
+        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-success/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 hidden lg:block" />
+        <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-accent/10 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2 hidden lg:block" />
+
+        <div className="container-main relative">
           <div className="max-w-3xl mx-auto text-center">
             <span className="badge badge-primary mb-4">Industries We Serve</span>
             <h1 className="text-h1 text-primary mb-6">
@@ -34,27 +38,40 @@ export default function IndustriesPage() {
       <section className="section bg-cream-dark">
         <div className="container-main">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industries.map((industry) => (
-              <Link
-                key={industry.slug}
-                href={`/industries/${industry.slug}`}
-                className="group bg-white rounded-card p-8 shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
-                  <industry.icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
-                </div>
-                <h2 className="text-xl font-semibold text-primary mb-3 group-hover:text-primary/80 transition-colors">
-                  {industry.title}
-                </h2>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                  {industry.shortDescription}
-                </p>
-                <div className="flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all">
-                  Learn more
-                  <ArrowRight className="w-4 h-4" />
-                </div>
-              </Link>
-            ))}
+            {industries.map((industry, index) => {
+              const colors = ['primary', 'success', 'accent'];
+              const color = colors[index % colors.length];
+              return (
+                <Link
+                  key={industry.slug}
+                  href={`/industries/${industry.slug}`}
+                  className="group bg-white rounded-card p-8 shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1"
+                >
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors ${
+                    color === 'success' ? 'bg-success/10 group-hover:bg-success' :
+                    color === 'accent' ? 'bg-accent/10 group-hover:bg-accent' : 'bg-primary/10 group-hover:bg-primary'
+                  }`}>
+                    <industry.icon className={`w-7 h-7 transition-colors group-hover:text-white ${
+                      color === 'success' ? 'text-success' :
+                      color === 'accent' ? 'text-accent' : 'text-primary'
+                    }`} />
+                  </div>
+                  <h2 className="text-xl font-semibold text-primary mb-3 group-hover:text-primary/80 transition-colors">
+                    {industry.title}
+                  </h2>
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                    {industry.shortDescription}
+                  </p>
+                  <div className={`flex items-center gap-2 font-medium text-sm group-hover:gap-3 transition-all ${
+                    color === 'success' ? 'text-success' :
+                    color === 'accent' ? 'text-accent' : 'text-primary'
+                  }`}>
+                    Learn more
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

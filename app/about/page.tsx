@@ -16,52 +16,62 @@ const values = [
     title: 'Your Goals First',
     description:
       'We take the time to learn about where you want to be, then develop a bespoke program to get you there.',
+    color: 'primary',
   },
   {
     icon: Users,
     title: 'Dedicated Support',
     description:
       "You'll always have a dedicated member of our team. No big-box runaround, just personalized service.",
+    color: 'success',
   },
   {
     icon: Zap,
     title: 'Lightning Fast',
     description:
       "When it comes to personnel issues, we know time matters. That's why we pride ourselves on rapid response.",
+    color: 'accent',
   },
   {
     icon: Award,
     title: 'Award-Winning Tech',
     description:
       'Our iSolved-powered platform delivers everything you need, from onboarding to time tracking.',
+    color: 'success',
   },
   {
     icon: Heart,
     title: 'Employee Focused',
     description:
       "Your employees are your greatest assets. We make sure they're treated that way, from hire to retire.",
+    color: 'primary',
   },
   {
     icon: Shield,
     title: 'Compliance Experts',
     description:
       'We track HR trends, topics, and policies at both state and federal levels so you stay compliant.',
+    color: 'success',
   },
 ];
 
 const stats = [
-  { value: '500+', label: 'Companies Served' },
-  { value: '50K+', label: 'Employees Supported' },
-  { value: '20+', label: 'Years Experience' },
-  { value: '99%', label: 'Client Retention' },
+  { value: '500+', label: 'Companies Served', color: 'primary' },
+  { value: '50K+', label: 'Employees Supported', color: 'success' },
+  { value: '20+', label: 'Years Experience', color: 'accent' },
+  { value: '99%', label: 'Client Retention', color: 'success' },
 ];
 
 export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-cream">
-        <div className="container-main">
+      <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-cream relative overflow-hidden">
+        {/* Decorative blobs */}
+        <div className="absolute top-20 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl transform translate-x-1/2 hidden lg:block" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-success/10 rounded-full blur-3xl transform -translate-x-1/2 hidden lg:block" />
+
+        <div className="container-main relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="badge badge-primary mb-4">About Us</span>
@@ -102,9 +112,15 @@ export default function AboutPage() {
                   {stats.map((stat, index) => (
                     <div
                       key={index}
-                      className="bg-white rounded-xl p-3 lg:p-4 text-center shadow-card"
+                      className={`bg-white rounded-xl p-3 lg:p-4 text-center shadow-card border-t-2 ${
+                        stat.color === 'success' ? 'border-success' :
+                        stat.color === 'accent' ? 'border-accent' : 'border-primary'
+                      }`}
                     >
-                      <div className="text-lg lg:text-2xl font-bold text-primary">
+                      <div className={`text-lg lg:text-2xl font-bold ${
+                        stat.color === 'success' ? 'text-success' :
+                        stat.color === 'accent' ? 'text-accent' : 'text-primary'
+                      }`}>
                         {stat.value}
                       </div>
                       <div className="text-[10px] lg:text-xs text-muted-foreground">{stat.label}</div>
@@ -149,8 +165,14 @@ export default function AboutPage() {
                 key={index}
                 className="bg-white rounded-card p-8 shadow-soft hover:shadow-card transition-shadow"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <value.icon className="w-6 h-6 text-primary" />
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+                  value.color === 'success' ? 'bg-success/10' :
+                  value.color === 'accent' ? 'bg-accent/10' : 'bg-primary/10'
+                }`}>
+                  <value.icon className={`w-6 h-6 ${
+                    value.color === 'success' ? 'text-success' :
+                    value.color === 'accent' ? 'text-accent' : 'text-primary'
+                  }`} />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">{value.title}</h3>
                 <p className="text-sm text-muted-foreground">{value.description}</p>
@@ -187,8 +209,8 @@ export default function AboutPage() {
                   'Mobile app access',
                 ].map((item, index) => (
                   <li key={index} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
-                      <div className="w-2 h-2 rounded-full bg-primary" />
+                    <div className="w-5 h-5 rounded-full bg-success/10 flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full bg-success" />
                     </div>
                     <span>{item}</span>
                   </li>
@@ -223,12 +245,12 @@ export default function AboutPage() {
               {/* Stats card */}
               <div className="absolute -top-4 -right-4 lg:-right-6 bg-white rounded-2xl shadow-card p-3 lg:p-4">
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="text-center">
-                    <div className="text-xl lg:text-2xl font-bold text-primary">24/7</div>
+                  <div className="text-center border-l-2 border-success pl-3">
+                    <div className="text-xl lg:text-2xl font-bold text-success">24/7</div>
                     <div className="text-[10px] text-muted-foreground">Support</div>
                   </div>
-                  <div className="text-center">
-                    <div className="text-xl lg:text-2xl font-bold text-primary">100%</div>
+                  <div className="text-center border-l-2 border-accent pl-3">
+                    <div className="text-xl lg:text-2xl font-bold text-accent">100%</div>
                     <div className="text-[10px] text-muted-foreground">Cloud</div>
                   </div>
                 </div>

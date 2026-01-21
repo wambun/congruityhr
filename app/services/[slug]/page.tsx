@@ -72,6 +72,7 @@ export default async function ServicePage({ params }: PageProps) {
           {/* Decorative Elements */}
           <div className="absolute top-20 right-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl" />
           <div className="absolute bottom-10 left-10 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 right-1/4 w-48 h-48 bg-success/15 rounded-full blur-3xl hidden lg:block" />
         </div>
 
         <div className="container-main relative">
@@ -124,19 +125,26 @@ export default async function ServicePage({ params }: PageProps) {
               <div className="mb-12">
                 <h2 className="text-h3 text-primary mb-6">What We Offer</h2>
                 <div className="grid sm:grid-cols-2 gap-6">
-                  {service.features.map((feature, index) => (
-                    <div
-                      key={index}
-                      className="bg-white rounded-card p-6 shadow-soft"
-                    >
-                      <h3 className="font-semibold text-foreground mb-2">
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {feature.description}
-                      </p>
-                    </div>
-                  ))}
+                  {service.features.map((feature, index) => {
+                    const colors = ['primary', 'success', 'accent', 'success'];
+                    const color = colors[index % colors.length];
+                    return (
+                      <div
+                        key={index}
+                        className={`bg-white rounded-card p-6 shadow-soft border-l-4 ${
+                          color === 'success' ? 'border-success' :
+                          color === 'accent' ? 'border-accent' : 'border-primary'
+                        }`}
+                      >
+                        <h3 className="font-semibold text-foreground mb-2">
+                          {feature.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {feature.description}
+                        </p>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -147,8 +155,8 @@ export default async function ServicePage({ params }: PageProps) {
                   <ul className="space-y-4">
                     {service.benefits.map((benefit, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Check className="w-4 h-4 text-primary" />
+                        <div className="w-6 h-6 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Check className="w-4 h-4 text-success" />
                         </div>
                         <span className="text-foreground">{benefit}</span>
                       </li>

@@ -47,8 +47,12 @@ export default async function IndustryPage({ params }: PageProps) {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-cream">
-        <div className="container-main">
+      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-cream relative overflow-hidden">
+        {/* Decorative blobs */}
+        <div className="absolute top-20 right-0 w-[400px] h-[400px] bg-success/10 rounded-full blur-3xl transform translate-x-1/2 hidden lg:block" />
+        <div className="absolute bottom-0 left-1/4 w-[300px] h-[300px] bg-accent/10 rounded-full blur-3xl hidden lg:block" />
+
+        <div className="container-main relative">
           <div className="max-w-4xl">
             <Link
               href="/industries"
@@ -58,8 +62,8 @@ export default async function IndustryPage({ params }: PageProps) {
               Back to Industries
             </Link>
             <div className="flex items-start gap-6 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Icon className="w-8 h-8 text-primary" />
+              <div className="w-16 h-16 rounded-2xl bg-success/10 flex items-center justify-center flex-shrink-0">
+                <Icon className="w-8 h-8 text-success" />
               </div>
               <div>
                 <span className="badge badge-primary mb-3">{industry.title}</span>
@@ -104,19 +108,26 @@ export default async function IndustryPage({ params }: PageProps) {
                   Transform your workforce into a competitive advantage
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-6">
-                  {industry.features.map((feature, index) => (
-                    <div
-                      key={index}
-                      className="bg-white rounded-card p-6 shadow-soft"
-                    >
-                      <h3 className="font-semibold text-foreground mb-2">
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {feature.description}
-                      </p>
-                    </div>
-                  ))}
+                  {industry.features.map((feature, index) => {
+                    const colors = ['primary', 'success', 'accent', 'success'];
+                    const color = colors[index % colors.length];
+                    return (
+                      <div
+                        key={index}
+                        className={`bg-white rounded-card p-6 shadow-soft border-l-4 ${
+                          color === 'success' ? 'border-success' :
+                          color === 'accent' ? 'border-accent' : 'border-primary'
+                        }`}
+                      >
+                        <h3 className="font-semibold text-foreground mb-2">
+                          {feature.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {feature.description}
+                        </p>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -127,8 +138,8 @@ export default async function IndustryPage({ params }: PageProps) {
                   <ul className="space-y-4">
                     {industry.benefits.map((benefit, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Check className="w-4 h-4 text-primary" />
+                        <div className="w-6 h-6 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Check className="w-4 h-4 text-success" />
                         </div>
                         <span className="text-foreground">{benefit}</span>
                       </li>

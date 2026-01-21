@@ -34,7 +34,7 @@ export function Footer() {
                 href="tel:8442474100"
                 className="flex items-center gap-3 text-sm text-white/70 hover:text-white transition-colors group"
               >
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors">
                   <Phone className="w-4 h-4" />
                 </div>
                 <span>844-247-4100</span>
@@ -43,13 +43,13 @@ export function Footer() {
                 href="mailto:info@congruityhr.com"
                 className="flex items-center gap-3 text-sm text-white/70 hover:text-white transition-colors group"
               >
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                <div className="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center group-hover:bg-success/30 transition-colors">
                   <Mail className="w-4 h-4" />
                 </div>
                 <span>info@congruityhr.com</span>
               </a>
               <div className="flex items-center gap-3 text-sm text-white/70">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <span>HQ in North Carolina, Nationwide</span>

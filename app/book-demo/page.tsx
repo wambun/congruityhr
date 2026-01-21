@@ -50,8 +50,12 @@ export default function BookDemoPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-cream">
-        <div className="container-main">
+      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-cream relative overflow-hidden">
+        {/* Decorative blobs */}
+        <div className="absolute top-20 left-0 w-[400px] h-[400px] bg-success/10 rounded-full blur-3xl transform -translate-x-1/2 hidden lg:block" />
+        <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-accent/10 rounded-full blur-3xl hidden lg:block" />
+
+        <div className="container-main relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column */}
             <div>
@@ -68,8 +72,8 @@ export default function BookDemoPage() {
               <div className="space-y-4 mb-8">
                 {benefits.map((benefit, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-4 h-4 text-primary" />
+                    <div className="w-6 h-6 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle className="w-4 h-4 text-success" />
                     </div>
                     <span className="text-foreground">{benefit}</span>
                   </div>
@@ -78,16 +82,16 @@ export default function BookDemoPage() {
 
               {/* Quick Info Cards */}
               <div className="grid sm:grid-cols-3 gap-4">
-                <div className="bg-white rounded-xl p-4 shadow-soft text-center">
+                <div className="bg-white rounded-xl p-4 shadow-soft text-center border-t-2 border-primary">
                   <Calendar className="w-6 h-6 text-primary mx-auto mb-2" />
                   <div className="text-sm font-medium">Flexible Scheduling</div>
                 </div>
-                <div className="bg-white rounded-xl p-4 shadow-soft text-center">
-                  <Clock className="w-6 h-6 text-primary mx-auto mb-2" />
+                <div className="bg-white rounded-xl p-4 shadow-soft text-center border-t-2 border-success">
+                  <Clock className="w-6 h-6 text-success mx-auto mb-2" />
                   <div className="text-sm font-medium">30-45 Minutes</div>
                 </div>
-                <div className="bg-white rounded-xl p-4 shadow-soft text-center">
-                  <Users className="w-6 h-6 text-primary mx-auto mb-2" />
+                <div className="bg-white rounded-xl p-4 shadow-soft text-center border-t-2 border-accent">
+                  <Users className="w-6 h-6 text-accent mx-auto mb-2" />
                   <div className="text-sm font-medium">HR Expert Led</div>
                 </div>
               </div>
@@ -97,8 +101,8 @@ export default function BookDemoPage() {
             <div className="bg-white rounded-card p-8 shadow-card">
               {submitSuccess ? (
                 <div className="text-center py-12">
-                  <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle className="w-8 h-8 text-green-600" />
+                  <div className="w-16 h-16 rounded-full bg-success/15 flex items-center justify-center mx-auto mb-6">
+                    <CheckCircle className="w-8 h-8 text-success" />
                   </div>
                   <h2 className="text-h3 text-primary mb-4">Demo Requested!</h2>
                   <p className="text-muted-foreground mb-6">
